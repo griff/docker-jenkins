@@ -3,4 +3,4 @@
 . /etc/default/jenkins
 
 chown -R $JENKINS_USER $JENKINS_HOME
-su -l $JENKINS_USER --shell=/bin/bash -c "$JAVA $JAVA_ARGS -jar $JENKINS_WAR $JENKINS_ARGS" || return 2
+su -s /bin/bash -c "JENKINS_HOME=$JENKINS_HOME $JAVA $JAVA_ARGS -jar $JENKINS_WAR $JENKINS_ARGS" $JENKINS_USER || exit 2
