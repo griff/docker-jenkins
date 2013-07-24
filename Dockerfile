@@ -8,7 +8,9 @@ RUN apt-get update
 RUN apt-get -y install openjdk-7-jre-headless
 RUN apt-get -y install jenkins
 RUN apt-get -y clean
-RUN rm -rf /var/cache/jenkins/war/*
+RUN rm -rf /var/cache/jenkins/war
+RUN mkdir /var/cache/jenkins/war
+RUN chown jenkins /var/cache/jenkins/war
 ADD jenkins /usr/local/bin/jenkins
 RUN chmod a+x /usr/local/bin/jenkins
 
