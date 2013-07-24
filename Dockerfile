@@ -7,6 +7,7 @@ RUN echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/
 RUN apt-get update
 RUN apt-get install -y jenkins
 RUN apt-get clean
+RUN mv /var/lib/jenkins /var/lib/jenkins-original
 ADD jenkins /usr/local/bin/jenkins
 RUN chmod a+x /usr/local/bin/jenkins
 
