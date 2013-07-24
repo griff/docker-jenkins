@@ -1,7 +1,7 @@
 FROM base
 MAINTAINER Brian Olsen "brian@maven-group.org"
 
-RUN apt-get wget
+RUN apt-get install wget
 RUN wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
 RUN echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list
 RUN apt-get update
